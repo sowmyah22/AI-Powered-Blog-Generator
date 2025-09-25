@@ -16,15 +16,18 @@ Generate AI-written blogs on any topic using AWS Lambda and Bedrock DeepSeek R1.
 
 ### Tech Stack
 
-* Cloud: AWS Lambda, API Gateway, S3, Bedrock (DeepSeek R1)
+* Cloud: AWS Lambda, API Gateway, S3, AWS Bedrock (DeepSeek R1),CloudWatch
 
 * Programming: Python
 
-* AI/ML: Large Language Models, Prompt Engineering, Inference Tuning
+* Generative AI: Large Language Models, Prompt Engineering, Inference Tuning
 
 * Testing: Postman
 
 ### How It Works
+
+![Alt text](./images/img1.png)
+
 
 User sends a POST request with a blog topic.
 Lambda calls DeepSeek R1 using invoke_model with custom prompt formatting.
@@ -32,20 +35,20 @@ Generated content is stored in S3 with a topic-based key.
 Lambda returns a JSON response with S3 location and preview.
 
 #### Example Request (Postman / HTTP)
-POST https://<api-gateway-endpoint>/generate-blog
+* POST - https://<api-gateway-endpoint>/generate-blog
 
-Content-Type: application/json
+* Content-Type: application/json
 
-{
-  "blog_topic": "Generative AI in Cloud Computing"
-}
+* {
+  * "blog_topic": "Generative AI in Cloud Computing"
+* }
 
 #### Response
-{
-  "message": "Blog generated successfully",
-  "s3_location": "s3://blog-output-Generative_AI_in_Cloud_Computing.txt",
-  "content_preview": "Generative AI is revolutionizing cloud computing by enabling..."
-}
+* {
+  * "message": "Blog generated successfully",
+  * "s3_location": "s3://blog-output-Generative_AI_in_Cloud_Computing.txt",
+  * "content_preview": "Generative AI is revolutionizing cloud computing by enabling..."
+* }
 
 * Built serverless AI pipelines using AWS Lambda + Bedrock.
 
